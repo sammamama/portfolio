@@ -193,8 +193,8 @@ export default function Home() {
             <div className="flex flex-col justify-center 
             w-full">
               <div className="flex lg:flex-col justify-center gap-3">
-                  <Technologies />
-                  <Timeline />
+                <Technologies />
+                <Timeline />
               </div>
               <div className="w-full">
                 <Testimonials />
@@ -210,10 +210,10 @@ export default function Home() {
         >
           <Services />
           
-          <div className="py-10 flex justify-center 
-          flex-col items-center md:block">
-            <div className="text-[46px]">Contact Me</div>
-              <div className="w-[80%] bg-neutral-500/50 p-5">
+          <div className="py-10 mx-10 flex justify-center 
+          flex-col items-center">
+            <div className="text-[46px] w-full text-start ">Contact Me</div>
+              <div className="w-full bg-neutral-500/50 p-5">
                 <div className="text-[46px]">Whatsapp</div>
                 <div className="text-lg">
                   <div className="">Want to hire me as a freelancer? Let&apos;s discuss</div>
@@ -226,15 +226,14 @@ export default function Home() {
                       or Drop me your mail, We&apos;ll reach out
                       <input type="text" className="w-[40%] rounded-lg px-4 py-1 bg-neutral-800"/>
                       <button className="w-[40%] p-3 mt-2 bg-white/30 
-                      hover:bg-green-300 transition-all ease-out hover:text-neutral-600" type="submit">Submit</button>
+                      hover:bg-green-300 transition-all 
+                      ease-out hover:text-neutral-600" type="submit">Submit</button>
                     </div>
                   </form>
               </div>
             </div>
           </div>
         </div>
-
-
       </motion.section>
     </div>
   );

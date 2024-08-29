@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 const Services = () => {
   return (
-    <div className="px-4 py-8 max-w-7xl mx-auto">
-      <div className="text-[46px] text-center mb-12 text-white">Services</div>
+    <div className="px-4 py-8 max-w-7xl mx-5">
+      <div className="text-[46px] mb-12 w-full text-start text-white">Services</div>
       <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {/* Frontend Projects */}
         <div className="bg-neutral-800/70 md:row-span-2 lg:row-span-1 text-neutral-300 rounded-lg p-5
