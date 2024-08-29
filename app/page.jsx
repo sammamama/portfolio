@@ -191,7 +191,7 @@ export default function Home() {
           
           <div>
             <div className="flex flex-col justify-center 
-            w-full">
+            w-full ">
               <div className="flex lg:flex-col justify-center gap-3">
                 <Technologies />
                 <Timeline />
