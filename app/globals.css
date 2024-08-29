@@ -2,32 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+  background-color: #020617;
+  /* font-family: monospace; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html{
+  scroll-behavior: smooth;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Styles for WebKit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 10px; /* Adjusts scrollbar height for horizontal scrolling */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Scrollbar track color */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #555; /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid #333; /* Border around thumb */
+}
+
+/* Styles for Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: #555 #1a1a1a; /* Thumb and track colors */
+}
+
+@media only screen and (min-width: 1024px){
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none;
+  }  
+
+  .custom-scrollbar {
+    scrollbar-width: none; /* Makes the scrollbar thinner */
+    scrollbar-color: #555 #1a1a1a; /* Thumb and track colors */
   }
 }
