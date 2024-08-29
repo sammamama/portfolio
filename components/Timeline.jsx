@@ -5,7 +5,7 @@ const Timeline = () => {
   return (
     <div className="overflow-x-hidden"> {/* Prevent horizontal overflow */}
       <div
-        className="w-full max-w-[400px] bg-transparent/50 mt-10 rounded-xl p-5 md:p-10 text-lg mx-auto"
+        className="w-full max-w-[400px] bg-transparent/50 mt-10 rounded-xl p-3 sm:p-10 text-lg mx-auto"
       >
         Timeline
         <div className="flex flex-col justify-center text-sm items-center">

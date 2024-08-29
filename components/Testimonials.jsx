@@ -5,7 +5,7 @@ import srijan from '@/public/srijan.png'
 
 const Testimonials = () => {
   return (
-    <div className="lg:w-[400px] md:w-[90%] w-[350px] h-min 
+    <div className="lg:w-[400px] md:w-[90%] w-[300px] h-min 
     bg-neutral-300 mt-10 p-10 overflow-hidden">
       <div className="text-lg font-semibold text-black">Testimonials</div>
       <div className="flex gap-3 lg:flex-col sm:flex-row flex-col 

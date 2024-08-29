@@ -75,7 +75,7 @@ export default function Home() {
         className="relative flex justify-center items-center flex-col
       bg-gray-950 min-h-screen text-neutral-300 z-10 overflow-hidden"
       >
-        <h1 className="md:text-[60px] sm:text-[30px] text-[26px]">
+        <h1 className="md:text-[60px] sm:text-[30px] text-[22px]">
           Samridh{" "}
           <span className="text-[16px] italic font-light">
             you can call me Sam
@@ -224,7 +224,7 @@ export default function Home() {
                   <form ref={form} onSubmit={handleSubmit}>
                     <div className="flex flex-col">
                       or Drop me your mail, We&apos;ll reach out
-                      <input type="text" className="w-[40%] rounded-lg px-4 py-1 bg-neutral-800"/>
+                      <input type="text" className="md:w-[40%] w-full rounded-lg px-4 py-1 bg-neutral-800"/>
                       <button className="w-[40%] p-3 mt-2 bg-white/30 
                       hover:bg-green-300 transition-all 
                       ease-out hover:text-neutral-600" type="submit">Submit</button>
