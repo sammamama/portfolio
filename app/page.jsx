@@ -81,7 +81,7 @@ export default function Home() {
         className="relative flex justify-center items-center flex-col
       bg-gray-950 min-h-screen text-neutral-300 z-10 overflow-hidden"
       >
-        <h1 className="md:text-[60px] sm:text-[30px] text-[22px]">
+        <h1 className="md:text-[60px] sm:text-[30px] text-[20px]">
           Samridh{" "}
           <span className="text-[16px] italic font-light">
             you can call me Sam
