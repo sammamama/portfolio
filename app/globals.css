@@ -38,7 +38,7 @@ html{
   }  
 
   .custom-scrollbar {
-    scrollbar-width: none; /* Makes the scrollbar thinner */
-    scrollbar-color: #555 #1a1a1a; /* Thumb and track colors */
+    scrollbar-width: none;
+    scrollbar-color: #555 #1a1a1a;
   }
 }

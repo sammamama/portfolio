@@ -24,6 +24,8 @@ import Services from "@/components/Services";
 
 import emailjs from '@emailjs/browser'
 
+import z from 'zod';
+
 const COLORS = ["#433256", "#1a4673", "#604137", "#743d00", "#DD335C"];
 
 export default function Home() {
@@ -65,6 +67,10 @@ export default function Home() {
       console.log(error)
     }
   }
+
+  const Form = z.object({
+    emailAddress: z.string().email("Invalid email address"),
+  })
 
   return (
     <div className="font-mono ">
@@ -116,7 +122,7 @@ export default function Home() {
         }}
       >
         <div className="flex flex-col items-center lg:flex-row 
-        justify-center text-neutral-300 space-x-14 pb-[100px]"
+        justify-center text-neutral-300 sm:space-x-14 pb-[100px]"
         id="projects"
         ref={projectRef}
         >
@@ -190,13 +196,13 @@ export default function Home() {
           </div>
           
           <div>
-            <div className="flex flex-col justify-center 
-            w-full ">
-              <div className="flex lg:flex-col justify-center gap-3">
+            <div className="flex flex-col justify-center items-center
+            w-full">
+              <div className="flex lg:flex-col justify-center gap-3 p-3 sm:p-0">
                 <Technologies />
                 <Timeline />
               </div>
-              <div className="w-full">
+              <div className="w-full flex justify-center">
                 <Testimonials />
               </div>
             </div>
@@ -224,7 +230,10 @@ export default function Home() {
                   <form ref={form} onSubmit={handleSubmit}>
                     <div className="flex flex-col">
                       or Drop me your mail, We&apos;ll reach out
-                      <input type="text" className="md:w-[40%] w-full rounded-lg px-4 py-1 bg-neutral-800"/>
+                      <input
+                        name="email" 
+                        type="text" 
+                        className="md:w-[40%] w-full rounded-lg px-4 py-1 bg-neutral-800"/>
                       <button className="w-[40%] p-3 mt-2 bg-white/30 
                       hover:bg-green-300 transition-all 
                       ease-out hover:text-neutral-600" type="submit">Submit</button>
