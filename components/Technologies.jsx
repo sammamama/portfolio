@@ -4,7 +4,7 @@ import { technologies } from "@/data/technologies";
 
 const Technologies = () => {
   return (
-    <div className="max-w-[200px] lg:max-w-[400px] md:max-w-[300px] mt-10 rounded-xl bg-transparent/30 p-10 text-lg font-bold h-min">
+    <div className="w-[80%] max-w-none lg:max-w-[400px] md:max-w-[300px] mt-10 rounded-xl bg-transparent/30 p-10 text-lg font-bold h-min">
       Technologies Known
       <div className="flex justify-center items-center flex-wrap gap-x-5">
         {technologies.map(({ title, image, index }) => (

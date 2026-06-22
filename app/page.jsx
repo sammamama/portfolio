@@ -8,11 +8,11 @@ import {
   useMotionTemplate,
   useMotionValue,
 } from "framer-motion";
-import { Stars } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-
-import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState, Suspense } from "react";
 import Link from "next/link";
+
+const StarsCanvas = dynamic(() => import("@/components/StarsCanvas"), { ssr: false });
 
 import { projects } from "@/data/projects";
 import Timeline from "@/components/Timeline";
@@ -23,8 +23,26 @@ import wsapp from '@/public/wsapp.svg'
 import Services from "@/components/Services";
 
 import emailjs from '@emailjs/browser'
+import { toast } from 'sonner'
 
 import z from 'zod';
+
+const MAX_EMAILS_PER_DAY = 5;
+
+function checkRateLimit() {
+  const now = Date.now();
+  const dayMs = 24 * 60 * 60 * 1000;
+  const stored = JSON.parse(localStorage.getItem("emailTimestamps") || "[]");
+  const recent = stored.filter((t) => now - t < dayMs);
+  localStorage.setItem("emailTimestamps", JSON.stringify(recent));
+  return recent.length < MAX_EMAILS_PER_DAY;
+}
+
+function recordEmail() {
+  const stored = JSON.parse(localStorage.getItem("emailTimestamps") || "[]");
+  stored.push(Date.now());
+  localStorage.setItem("emailTimestamps", JSON.stringify(stored));
+}
 
 const COLORS = ["#433256", "#1a4673", "#604137", "#743d00", "#DD335C"];
 
@@ -34,6 +52,7 @@ export default function Home() {
   const form = useRef();
   const projectRef = useRef(null);
   const serviceRef = useRef(null);
+  const scrollRef = useRef(null);
   
   const color = useMotionValue(COLORS[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(100% 105% at 50% 0%, #020617 50%, ${color})`;
@@ -41,11 +60,19 @@ export default function Home() {
 
   function handleSubmit(e){
     e.preventDefault();
-  
+
+    if (!checkRateLimit()) {
+      toast.error("Too many emails sent. Try again later.");
+      return;
+    }
+
     emailjs.sendForm(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID, form.current, {
       publicKey: process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY
     }).then(() => {
-      console.log(sent)
+      recordEmail();
+      toast.success("Email sent!");
+    }).catch(() => {
+      toast.error("Failed to send email.");
     })
   }
 
@@ -81,38 +108,89 @@ export default function Home() {
         className="relative flex justify-center items-center flex-col
       bg-gray-950 min-h-screen text-neutral-300 z-10 overflow-hidden"
       >
-        <h1 className="md:text-[60px] sm:text-[30px] text-[20px]">
-          Samridh{" "}
-          <span className="text-[16px] italic font-light">
+        <motion.h1
+          className="md:text-[60px] sm:text-[30px] text-[20px]"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15 } }
+          }}
+        >
+          <motion.span
+            variants={{
+              hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+              visible: { y: 0, opacity: 1, filter: "blur(0px)" }
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            Samridh{" "}
+          </motion.span>
+          <motion.span
+            className="text-[16px] italic font-light"
+            variants={{
+              hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+              visible: { y: 0, opacity: 1, filter: "blur(0px)" }
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
             you can call me Sam
-          </span>{" "}
-          Sharma
-        </h1>
-        <h3
+          </motion.span>
+          <motion.span
+            variants={{
+              hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+              visible: { y: 0, opacity: 1, filter: "blur(0px)" }
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            {" "}Sharma
+          </motion.span>
+        </motion.h1>
+        <motion.h3
           style={{ wordSpacing: "20px" }}
           className="text-[14px] md:text-[18px] text-center w-inherit tracking-[4px] italic text-neutral-400"
+          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.45 }}
         >
           &quot;Creating Real-World Ready Web Applicaitons&quot;
-        </h3>
-        <div className="flex space-x-10">
-          <button
+        </motion.h3>
+        <motion.div
+          className="flex space-x-10"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15, delayChildren: 0.6 } }
+          }}
+        >
+          <motion.button
             className="mt-5 bg-neutral-300 text-black font-semibold
             rounded-full px-7 py-2 flex items-center justify-center"
             onClick={() => handleScroll(serviceRef)}
+            variants={{
+              hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+              visible: { y: 0, opacity: 1, filter: "blur(0px)" }
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             Services
-          </button>
-          <button
-            className={`mt-5 bg-black rounded-full px-7 py-2 border-2 border-[${color}] flex items-center justify-center`}
-            onClick={() => handleScroll(projectRef)}
-          >
-            See Projects
-          </button>
-        </div>
+          </motion.button>
+          <Link href="/projects">
+            <motion.button
+              className={`mt-5 bg-black rounded-full px-7 py-2 border-2 border-[${color}] flex items-center justify-center`}
+              variants={{
+                hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+                visible: { y: 0, opacity: 1, filter: "blur(0px)" }
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              See Projects
+            </motion.button>
+          </Link>
+        </motion.div>
         <div className="absolute inset-0 -z-10">
-          <Canvas>
-            <Stars radius={100} count={1000} factor={4} fade speed={2} />
-          </Canvas>
+          <StarsCanvas />
         </div>
       </motion.section>
       
@@ -121,7 +199,7 @@ export default function Home() {
           backgroundImage: backgroundImageBottom,
         }}
       >
-        <div className="flex flex-col items-center lg:flex-row 
+        <div className="relative flex flex-col items-center lg:flex-row
         justify-center text-neutral-300 sm:space-x-14 pb-[100px]"
         id="projects"
         ref={projectRef}
@@ -132,9 +210,28 @@ export default function Home() {
           >
             <div className=" m-10">
               <h1 className="md:text-[46px] text-[30px]">Projects</h1>
-              <div className="overflow-hidden overflow-x-scroll custom-scrollbar">
-                <div className="flex lg:flex-col flex-row flex-nowrap 
-                flex-shrink-0 justify-center lg:items-center 
+              <div className="relative">
+                <button
+                  onClick={() => scrollRef.current?.scrollBy({ left: -300, behavior: "smooth" })}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/70
+                  rounded-full p-2 text-neutral-300 hover:bg-black lg:hidden"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 18l-6-6 6-6"/>
+                  </svg>
+                </button>
+                <button
+                  onClick={() => scrollRef.current?.scrollBy({ left: 300, behavior: "smooth" })}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/70
+                  rounded-full p-2 text-neutral-300 hover:bg-black lg:hidden"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                  </svg>
+                </button>
+              <div ref={scrollRef} className="overflow-hidden overflow-x-scroll custom-scrollbar">
+                <div className="flex lg:flex-col flex-row flex-nowrap
+                flex-shrink-0 justify-center lg:items-center
                 space-x-5 mt-5 w-[2000px] lg:w-full">
                   {
                     projects.map(({index, link, img, title, desc, tags}) => (
@@ -192,15 +289,31 @@ export default function Home() {
                 </div>
 
               </div>
+              </div>
+            </div>
+            <div className="sticky bottom-6 flex justify-center z-20 pb-4">
+              <Link
+                href="/projects"
+                className="bg-neutral-300 text-black font-semibold rounded-full
+                px-5 py-2 text-sm flex items-center gap-2
+                hover:bg-white transition-colors"
+              >
+                View All
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                </svg>
+              </Link>
             </div>
           </div>
-          
+
           <div>
             <div className="flex flex-col justify-center items-center
             w-full">
               <div className="flex lg:flex-col justify-center gap-3 p-3 sm:p-0">
                 <Technologies />
-                <Timeline />
+                <div className="hidden lg:block">
+                  <Timeline />
+                </div>
               </div>
               <div className="w-full flex justify-center">
                 <Testimonials />
@@ -208,8 +321,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
-        <div 
+
+        <div
           className="text-neutral-300 xl:mx-[270px]"
           id="service"
           ref={serviceRef}
