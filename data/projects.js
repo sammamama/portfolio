@@ -8,90 +8,109 @@ import react from "@/public/react.svg";
 import next from "@/public/nextjs.svg";
 import framer from "@/public/framer.svg";
 import tailwind from "@/public/tailwind.svg";
+import prisma from "@/public/prisma.svg";
+import nodejs from "@/public/nodejs.svg";
+import postgres from "@/public/postgres.svg";
 
 export const projects = [
-{
+  {
     title: "LyricForge",
-    desc: "An AI-powered music generation platform that turns vibes into original songs — describe a mood and get complete lyrics with audio, no instruments needed.",
+    desc: "Full-stack AI SaaS with auth, user dashboards, and real-time song generation — users describe a mood and get complete lyrics with streamed audio output.",
     link: "https://lyricforge.xyz/",
+    github: "https://github.com/sammamama/lyrics-forge",
     img: lyricforge,
-    tags: [{
+    tags: [
+      {
         img: next,
-        tech: "NextJS"
-    },
-    {
+        tech: "NextJS",
+      },
+      {
         img: ts,
-        tech: "TypeScript"
-    },
-    {
+        tech: "TypeScript",
+      },
+      {
+        img: prisma,
+        tech: "Prisma",
+      },
+      {
+        img: postgres,
+        tech: "PostgreSQL",
+      },
+      {
         img: tailwind,
-        tech: "Tailwind"
-    },
-    {
+        tech: "Tailwind",
+      },
+      {
         img: framer,
-        tech: "Framer"
-    },
-]
-},
-{
-    title: "Glass Den",
-    desc: "A sleek fine-dining restaurant website with a unique prison-themed aesthetic, featuring a digital menu system with chef's picks and signature dishes.",
-    link: "https://glass-den.vercel.app/",
-    img: glassden,
-    tags: [{
-        img: next,
-        tech: "NextJS"
-    },
-    {
-        img: ts,
-        tech: "TypeScript"
-    },
-    {
-        img: tailwind,
-        tech: "Tailwind"
-    },
-]
-},
-{
+        tech: "Framer",
+      },
+    ],
+  },
+  {
     title: "Sthaptya",
     desc: "Portfolio website for a Himalayas-based architecture firm showcasing projects across hospitality, residential, and commercial spaces with booking functionality.",
     link: "https://sthaptya.vercel.app/",
+    github: "https://github.com/sammamama/sthaptya",
     img: sthaptya,
-    tags: [{
+    tags: [
+      {
         img: react,
-        tech: "React"
-    },
-    {
+        tech: "React",
+      },
+      {
         img: ts,
-        tech: "TypeScript"
-    },
-    {
+        tech: "TypeScript",
+      },
+      {
         img: tailwind,
-        tech: "Tailwind"
-    },
-    {
+        tech: "Tailwind",
+      },
+      {
         img: framer,
-        tech: "Framer"
-    },
-]
-},
-{
+        tech: "Framer",
+      },
+    ],
+  },
+  {
+    title: "Glass Den",
+    desc: "A sleek fine-dining restaurant website with a unique prison-themed aesthetic, featuring a digital menu system with chef's picks and signature dishes.",
+    link: "https://glass-den.vercel.app/",
+    github: "https://github.com/sammamama/glass-den",
+    img: glassden,
+    tags: [
+      {
+        img: next,
+        tech: "NextJS",
+      },
+      {
+        img: ts,
+        tech: "TypeScript",
+      },
+      {
+        img: tailwind,
+        tech: "Tailwind",
+      },
+    ],
+  },
+  {
     title: "Web3 Noobie",
     desc: "An educational Web3 platform for Solana beginners — includes a devnet faucet, SOL transfers, and token launching to learn blockchain development hands-on.",
     link: "https://web3-noobie.vercel.app/",
+    github: "https://github.com/sammamama/web3-noobie",
     img: web3noobie,
-    tags: [{
+    tags: [
+      {
         img: next,
-        tech: "NextJS"
-    },
-    {
+        tech: "NextJS",
+      },
+      {
         img: ts,
-        tech: "TypeScript"
-    },
-    {
+        tech: "TypeScript",
+      },
+      {
         img: tailwind,
-        tech: "Tailwind"
-    },
-]
-},
-]
+        tech: "Tailwind",
+      },
+    ],
+  },
+];

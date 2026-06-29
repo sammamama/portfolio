@@ -1,56 +1,66 @@
-import ts from "@/public/ts1.png";
-import css from "@/public/css.svg";
-import docker from "@/public/docker.svg";
-import react from "@/public/react.svg";
-import next from "@/public/nextjs.svg";
-import jenkins from "@/public/jenkins12.svg";
-import mongo from "@/public/mongo12.svg";
-import framer from "@/public/framer.svg";
-import html from "@/public/html.svg";
-import recoil from "@/public/recoil.svg";
-import tailwind from "@/public/tailwind.svg";
-import js from "@/public/js.svg";
-
-
 export const technologies = [
 {
-    image: ts,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
     title: "TypeScript"
 },
-{   image: css,
-    title: "CSS"
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    title: "JavaScript"
 },
-{   image: docker,
-    title: "Docker"
-},
-{   image: react,
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     title: "React"
 },
-{   image: next,
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     title: "NextJS"
 },
-{   image: mongo,
-    title: "Mongo"
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    title: "Node.js"
 },
-{   image: css,
-    title: "CSS"
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    title: "MongoDB"
 },
-{   image: jenkins,
-    title: "Jenkins"
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+    title: "Prisma"
 },
-{   image: html,
-    title: "HTML"
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    title: "PostgreSQL"
 },
-{   image: tailwind,
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+    title: "Redis"
+},
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
     title: "Tailwind"
 },
-{   image: recoil,
-    title: "Recoil"
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg",
+    title: "Three.js"
 },
-{   image: framer,
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framermotion/framermotion-original.svg",
     title: "Framer"
 },
-{   image: js,
-    title: "JavaSript"
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg",
+    title: "Solana"
+},
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    title: "Docker"
+},
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+    title: "Vercel"
+},
+{
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    title: "Git"
 },
 ]

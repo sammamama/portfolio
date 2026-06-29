@@ -17,7 +17,6 @@ const StarsCanvas = dynamic(() => import("@/components/StarsCanvas"), { ssr: fal
 import { projects } from "@/data/projects";
 import Timeline from "@/components/Timeline";
 import Technologies from "@/components/Technologies";
-import Testimonials from "@/components/Testimonials";
 
 import wsapp from '@/public/wsapp.svg' 
 import Services from "@/components/Services";
@@ -52,6 +51,7 @@ export default function Home() {
   const form = useRef();
   const projectRef = useRef(null);
   const serviceRef = useRef(null);
+  const aboutRef = useRef(null);
   const scrollRef = useRef(null);
   
   const color = useMotionValue(COLORS[0]);
@@ -153,7 +153,7 @@ export default function Home() {
           animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.45 }}
         >
-          &quot;Creating Real-World Ready Web Applicaitons&quot;
+          &quot;Creating Real-World Ready Web Applications&quot;
         </motion.h3>
         <motion.div
           className="flex space-x-10"
@@ -167,14 +167,14 @@ export default function Home() {
           <motion.button
             className="mt-5 bg-neutral-300 text-black font-semibold
             rounded-full px-7 py-2 flex items-center justify-center"
-            onClick={() => handleScroll(serviceRef)}
+            onClick={() => handleScroll(aboutRef)}
             variants={{
               hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
               visible: { y: 0, opacity: 1, filter: "blur(0px)" }
             }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            Services
+            About Me
           </motion.button>
           <Link href="/projects">
             <motion.button
@@ -315,10 +315,46 @@ export default function Home() {
                   <Timeline />
                 </div>
               </div>
-              <div className="w-full flex justify-center">
-                <Testimonials />
-              </div>
             </div>
+          </div>
+        </div>
+
+        <div className="text-neutral-300 py-16 px-10 xl:mx-[270px]" id="about" ref={aboutRef}>
+          <h1 className="md:text-[46px] text-[30px] mb-6">About Me</h1>
+          <p className="text-lg text-neutral-400 leading-relaxed mb-4">
+            I&apos;m Samridh Sharma — a full-stack developer. Currently I am
+            building a gifting songs for special occasions software. Other than
+            that I am passionate about building premium experiences, and
+            building apps that I personally would have fun building.
+          </p>
+          <p className="text-lg text-neutral-400 leading-relaxed mb-6">
+            My stack centers around Next.js, React, TypeScript, and Tailwind on
+            the frontend, with Node.js, Prisma, and MongoDB on the backend.
+            Targeting full-stack developer roles where I can ship features
+            end-to-end.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="https://github.com/sammamama"
+              target="_blank"
+              className="px-5 py-2 bg-neutral-300 text-black font-semibold rounded-full hover:bg-white transition-colors"
+            >
+              GitHub
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/samridh-sharma-0201a8259/"
+              target="_blank"
+              className="px-5 py-2 border border-neutral-500 rounded-full hover:border-neutral-300 transition-colors"
+            >
+              LinkedIn
+            </Link>
+            <Link
+              href="https://x.com/samm_ammm"
+              target="_blank"
+              className="px-5 py-2 border border-neutral-500 rounded-full hover:border-neutral-300 transition-colors"
+            >
+              X
+            </Link>
           </div>
         </div>
 
