@@ -22,7 +22,7 @@ export const allProjects = [
   {
     title: "Adore You",
     desc: "A song gifting platform where users personalize and send songs as gifts — complete with Stripe payments, authentication, and a polished animated experience.",
-    link: "https://adoreyou-five.vercel.app/",
+    link: "https://adoreyou.app/",
     github: "https://github.com/sammamama/adoreyou",
     img: adoreyou,
     tags: [
