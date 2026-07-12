@@ -1,3 +1,4 @@
+import adoreyou from "@/public/adoreyou.png";
 import lyricforge from "@/public/lyricforge.png";
 import glassden from "@/public/glass-den.png";
 import sthaptya from "@/public/sthaptya.png";
@@ -11,8 +12,39 @@ import tailwind from "@/public/tailwind.svg";
 import prisma from "@/public/prisma.svg";
 import nodejs from "@/public/nodejs.svg";
 import postgres from "@/public/postgres.svg";
+import stripe from "@/public/stripe.svg";
+import betterAuth from "@/public/better-auth.svg";
 
 export const projects = [
+  {
+    title: "Adore You",
+    desc: "A song gifting platform where users personalize and send songs as gifts — complete with Stripe payments, authentication, and a polished animated experience.",
+    link: "https://adoreyou-five.vercel.app/",
+    github: "https://github.com/sammamama/adoreyou",
+    img: adoreyou,
+    tags: [
+      {
+        img: next,
+        tech: "NextJS",
+      },
+      {
+        img: tailwind,
+        tech: "Tailwind",
+      },
+      {
+        img: stripe,
+        tech: "Stripe",
+      },
+      {
+        img: betterAuth,
+        tech: "Better Auth",
+      },
+      {
+        img: framer,
+        tech: "Framer",
+      },
+    ],
+  },
   {
     title: "LyricForge",
     desc: "Full-stack AI SaaS with auth, user dashboards, and real-time song generation — users describe a mood and get complete lyrics with streamed audio output.",
